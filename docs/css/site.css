@@ -1,0 +1,862 @@
+/* General Reset and Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Neue Montreal', sans-serif;
+    background-color: #ffffff; /* Light background */
+    color: #111111; /* Neutral, almost-black text */
+    cursor: default; /* Optional: restore normal cursor for readability */
+}
+
+
+body {
+    cursor: none; /* Hide the default arrow */
+}
+
+/* Container for the custom cursor */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+/* Outer dusty pink circle */
+.cursor-outer {
+    width: 40px;
+    height: 40px;
+    background-color: #d68a94;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+}
+
+/* Inner darker purple dot */
+.cursor-inner {
+    width: 6px;
+    height: 6px;
+    background-color: #5b2a86; /* Updated to deep purple */
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+    background-color: #0a0f1c; /* fallback dark blue */
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f5c6d0;
+    font-size: 3rem;
+    position: relative; /* Makes sure text stays above the video */
+}
+
+    .hero h1 {
+        font-family: 'Neue Montreal', sans-serif;
+        font-weight: bold;
+        font-size: 5rem;
+        text-transform: uppercase;
+    }
+
+/* 'BRAND' Text */
+#brand-text {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+/* The dot will move when the "S" is not visible */
+#brand-dot {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: left 0.5s ease;
+}
+
+/* Random appearance of 'S' */
+@keyframes randomS {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Keyframe for moving dot when 'S' disappears */
+@keyframes dotMove {
+    0%, 100% {
+        left: 100%;
+    }
+
+    50% {
+        left: -15px;
+    }
+}
+
+/* Adding animation to the dot and 'S' */
+#brand-s {
+    animation: randomS 2s infinite;
+}
+
+#brand-dot {
+    animation: dotMove 2s infinite;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.project-card {
+    background-color: #222;
+    padding: 20px;
+    color: #f5c6d0;
+    text-align: center;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+    .project-card:hover {
+        transform: scale(1.05);
+        background-color: #333;
+    }
+
+.project-case {
+    padding: 80px 20px;
+    background-color: #0f1923;
+    color: #f0f4f8;
+    font-family: 'Neue Montreal', sans-serif;
+}
+
+.case-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-case h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #f5c6d0;
+}
+
+.project-case h2 {
+    margin-top: 40px;
+    font-size: 2rem;
+    color: #add8ff;
+}
+
+.project-case p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.case-image {
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 12px;
+}
+
+.back-link a {
+    display: inline-block;
+    margin-top: 50px;
+    color: #f5c6d0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section-intro {
+    background-color: #f4f1ec;
+    padding: 60px 20px;
+}
+
+.section-overview {
+    background-color: #f7f7f7;
+    padding: 60px 20px;
+}
+
+.section-research {
+    background-color: #efefef;
+    padding: 60px 20px;
+}
+
+.section-design {
+    background-color: #e3e9f2;
+    padding: 60px 20px;
+}
+
+.section-conclusion {
+    background-color: #ffffff;
+    padding: 60px 20px;
+}
+
+a {
+    color: #5b7db1; /* Soft navy blue accent */
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+figure {
+    text-align: center;
+    margin: 2em 0;
+}
+
+    figure img {
+        max-width: 100%;
+        height: auto;
+    }
+
+figcaption {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0.5em;
+}
+
+.two-column-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9; /* Light background */
+    padding: 60px 20px;
+}
+
+    .two-column-section .column {
+        flex: 1 1 45%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .two-column-section .image-column img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .two-column-section .text-column h2 {
+        color: #111;
+    }
+
+    .two-column-section .text-column p {
+        color: #333;
+        line-height: 1.6;
+    }
+
+.content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+    .content p {
+        line-height: 1.7;
+        font-size: 1.1rem;
+    }
+
+.section-problem,
+.section-personas,
+.section-testing,
+.section-feedback {
+    background-color: #ffffff;
+    padding: 60px 20px;
+}
+
+    .section-problem h2,
+    .section-personas h2,
+    .section-testing h2,
+    .section-feedback h2 {
+        color: #111;
+    }
+
+    .section-problem p,
+    .section-personas ul,
+    .section-testing ul,
+    .section-feedback ul {
+        color: #333;
+        line-height: 1.7;
+    }
+
+    .section-personas ul,
+    .section-testing ul,
+    .section-feedback ul {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .section-personas li,
+    .section-testing li,
+    .section-feedback li {
+        margin-bottom: 0.6rem;
+    }
+
+/* Section style with matching layout */
+.section-challenge {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+/* Flex layout inside .content wrapper */
+.two-column-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+    .two-column-layout .column {
+        flex: 1 1 45%;
+        box-sizing: border-box;
+    }
+
+.section-challenge h2 {
+    margin-top: 0;
+    color: #111;
+}
+
+.section-challenge p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* Responsive stacking on mobile */
+@media (max-width: 768px) {
+    .two-column-layout {
+        flex-direction: column;
+    }
+
+        .two-column-layout .column {
+            flex: 1 1 100%;
+        }
+}
+
+.hero-image-section {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-full-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.section-divider {
+    line-height: 0;
+    overflow: hidden;
+    height: auto;
+}
+
+    .section-divider svg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .section-divider.flip svg {
+        transform: rotate(180deg);
+    }
+
+#brand-text {
+    display: inline-flex;
+    align-items: baseline;
+    font-weight: bold;
+    font-size: 5rem;
+    position: relative;
+    white-space: nowrap;
+}
+
+#brand-s {
+    animation: randomS 2s infinite;
+    display: inline-block;
+    width: auto;
+}
+
+#brand-dot {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    animation: dotMove 2s infinite;
+    pointer-events: none;
+}
+
+.projects-section {
+    padding: 100px 20px;
+    background-color: #ffffff;
+}
+
+.project-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 80px;
+    padding: 0 20px;
+}
+
+.project-image-column {
+    flex: 1 1 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-image-column:hover .project-image {
+    transform: scale(1.03);
+}
+
+.project-text-column {
+    flex: 1 1 45%;
+}
+
+.project-title {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.project-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f5c6d0;
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .project-button:hover {
+        background-color: #ecb3c2;
+        transform: translateY(-2px);
+    }
+
+@media (max-width: 768px) {
+    .project-row {
+        flex-direction: column;
+    }
+
+    .project-image-column,
+    .project-text-column {
+        flex: 1 1 100%;
+    }
+
+    .project-text-column {
+        margin-top: 20px;
+    }
+}
+
+.project-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d68a94; /* deeper dusty pink */
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .project-button:hover {
+        background-color: #c57680; /* slightly darker on hover */
+        transform: translateY(-2px);
+    }
+
+/* Sticky Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    border-bottom: 1px solid #eaeaea;
+    padding: 1rem 2rem;
+}
+
+/* Navigation container */
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 1rem;
+}
+
+
+    /* Navigation links */
+    .nav-container a {
+        color: #111;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+    }
+
+        .nav-container a:hover {
+            opacity: 0.6;
+        }
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 2rem;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    font-family: 'Neue Montreal', sans-serif;
+}
+
+    .nav-container a {
+        color: #111;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+    }
+
+        .nav-container a:hover {
+            opacity: 0.6;
+        }
+
+/* Modal backdrop */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* On top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Black semi-transparent */
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* 10% from top and centered */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-family: 'Neue Montreal', sans-serif;
+}
+
+/* Close button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .close-btn:hover {
+        color: #000;
+    }
+
+.site-header,
+.nav-container {
+    pointer-events: none; /* Let the cursor move through */
+}
+
+    .nav-container a {
+        pointer-events: auto; /* Links still work */
+    }
+
+/* Video Header */
+.video-header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+    .video-header video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .video-header .overlay {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding-top: 30vh;
+        color: white;
+        font-family: 'Neue Montreal', sans-serif;
+    }
+
+    .video-header h1 {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .video-header p {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+/* ===================================== */
+/* About Page: Header and Content */
+/* ===================================== */
+
+.about-header {
+    background-color: #fcc6e6;
+    padding: 80px 20px;
+}
+
+.two-column-about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.image-column {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.profile-picture {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.text-column {
+    flex: 1 1 500px;
+}
+
+    .text-column h1 {
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
+        color: #1F2C37;
+    }
+
+    .text-column .subtitle {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #5b2a86;
+        margin-bottom: 1.5rem;
+    }
+
+    .text-column p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #333;
+        margin-bottom: 1.2rem;
+    }
+
+.about-content {
+    background-color: #ffffff; 
+    padding: 80px 20px;
+}
+
+    .about-content .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem;
+        margin-top: 40px;
+        margin-bottom: 1rem;
+        color: #111;
+    }
+
+    .about-content p,
+    .about-content ul {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-content ul {
+        padding-left: 1.5rem;
+        list-style-type: disc;
+    }
+
+    .about-content a {
+        color: #5b2a86;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .two-column-about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-column h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Credibilis Project Section - Scandinavian Background Palette + Fade Transitions */
+.project-case {
+    padding: 80px 20px;
+    background-color: #f4f1ee;
+    color: #111;
+    font-family: 'Neue Montreal', sans-serif;
+    transition: background-color 0.8s ease;
+}
+
+.section-intro {
+    background-color: #f4f1ee; /* Soft beige */
+    padding: 80px 20px;
+    transition: background-color 0.8s ease;
+}
+
+.section-overview {
+    background-color: #e8e2dc; /* Light taupe */
+    padding: 60px 20px;
+    transition: background-color 0.8s ease;
+}
+
+.section-research {
+    background-color: #dee7e5; /* Misty jade */
+    padding: 60px 20px;
+    transition: background-color 0.8s ease;
+}
+
+.section-design {
+    background-color: #e6e3ef; /* Pale lavender gray */
+    padding: 60px 20px;
+    transition: background-color 0.8s ease;
+}
+
+.section-testing {
+    background-color: #e1edf2; /* Soft powder blue */
+    padding: 60px 20px;
+    transition: background-color 0.8s ease;
+}
+
+.section-conclusion {
+    background-color: #f9f9f9; /* Near-white neutral */
+    padding: 60px 20px;
+    transition: background-color 0.8s ease;
+}
+
+.section-challenge,
+.section-problem,
+.section-personas,
+.section-feedback {
+    background-color: #f7f4f2;
+    padding: 60px 20px;
+    transition: background-color 0.8s ease;
+}
+
+
+.case-container,
+.two-column-layout {
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Womens Shelter Project Section */
+.project-section, .project-header, .project-details, .project-prototype, .project-ethics {
+    padding: 4rem 2rem;
+    color: #fff;
+    background-color: #111;
+}
+
+    .project-section h2, .project-header h1 {
+        font-family: 'DM Serif Display', serif;
+        font-size: 2.5rem;
+        color: #f4f4f4;
+    }
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.hero-image, .wide-image {
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
+    display: block;
+}
+
+img {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
