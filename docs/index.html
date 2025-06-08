@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title></title>
-
-    <!-- Link to your CSS file -->
-    <link href="css/site.css" rel="stylesheet" />
-
-    <!-- Optional: Font import for the 'Neue Montreal' font -->
+    <title>Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400&display=swap" rel="stylesheet" />
-</head>
-<body>
-    <div b-1x6atehwkg class="custom-cursor">
-        <div b-1x6atehwkg class="cursor-outer"></div>
-        <div b-1x6atehwkg class="cursor-inner"></div>
+    <link rel="stylesheet" href="/assets/css/site.css">
+  </head>
+  <body>
+    <div class="custom-cursor">
+        <div class="cursor-outer"></div>
+        <div class="cursor-inner"></div>
     </div>
 
-    <header b-1x6atehwkg class="site-header">
-        <nav b-1x6atehwkg class="nav-container">
-            <a href="index.html">Home</a>
-            <a href="About.html">About</a>
-            <a b-1x6atehwkg href="index.html#work">Work</a>
-            <a b-1x6atehwkg href="index.html#contact">Contact</a>
-        </nav>
-    </header>
-    </div>
+    <header class="site-header">
+    <nav class="nav-container">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/#work">Work</a>
+        <a href="/#contact">Contact</a>
+    </nav>
+</header>
 
 
-    <!-- This is where the content of each page will be inserted -->
-    
-<!-- Custom Cursor -->
+    <main><!-- Custom Cursor -->
 <div class="cursor-dot" id="cursor-dot"></div>
-
 <!-- Video Background -->
-<video autoplay muted loop playsinline id="bg-video">
-    <source src="videos/dark-ripple-surface-with-soft-reflections-2023-11-27-05-16-48-utc.mp4" type="video/mp4" />
+<video autoplay muted loop playsinline class="bg-video">
+    <source src="/assets/videos/dark-ripple-surface-with-soft-reflections-2023-11-27-05-16-48-utc.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
-
 <!-- Hero Section -->
 <section class="hero">
     <h1>
@@ -49,61 +40,50 @@
         </span>
     </h1>
 </section>
-
 <!-- Wave Transition -->
 <div class="wave-transition">
     <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
         <path d="M0,192 C480,320 960,64 1440,192 L1440,320 L0,320 Z"></path>
     </svg>
 </div>
-
 <!-- Projects Section -->
 <section class="projects-section" id="work">
     <div class="container">
         <h2 class="section-title">Esther's Projects</h2>
-
-        <div class="project-row">
-            <div class="project-image-column">
-                <img src="images/credibilis/thumbnail-credibilis.png" alt="Credibilis project preview" class="project-image" />
-            </div>
-            <div class="project-text-column">
-                <h3 class="project-title">Credibilis</h3>
-                <p class="project-description">
-                    A social news app empowering young users to stay informed, think critically, and trust what they read through transparent, community-driven journalism.
-                </p>
-                <a href="Projects/Credibilis.html" class="project-button">View Case →</a>
-            </div>
-        </div>
-
-        <div class="project-row">
-            <div class="project-image-column">
-                <img src="images/womens-shelter/womens-shelter-thumbnail.png" alt="Women's Shelter project preview" class="project-image" />
-            </div>
-            <div class="project-text-column">
-                <h3 class="project-title">Women's Shelter</h3>
-                <p class="project-description">
-                    A digital redesign supporting women’s safety and trust through anonymous support features and trauma-informed UX patterns.
-                </p>
-                <a href="Projects/WomensShelter.html" class="project-button">View Case →</a>
-            </div>
-        </div>
-    </div>
+<p><div class="project-row">
+<div class="project-image-column">
+<img src="/assets/images/credibilis/thumbnail-credibilis.png" alt="Credibilis project preview" class="project-image" />
+</div>
+<div class="project-text-column">
+<h3 class="project-title">Credibilis</h3>
+<p class="project-description">
+A social news app empowering young users to stay informed, think critically, and trust what they read through transparent, community-driven journalism.
+</p>
+<a href="projects/credibilis/" class="project-button">View Case →</a>
+</div>
+</div></p>
+<p><div class="project-row">
+<div class="project-image-column">
+<img src="/assets/images/womens-shelter/womens-shelter-thumbnail.png" alt="Women's Shelter project preview" class="project-image" />
+</div>
+<div class="project-text-column">
+<h3 class="project-title">Women's Shelter</h3>
+<p class="project-description">
+A digital redesign supporting women’s safety and trust through anonymous support features and trauma-informed UX patterns.
+</p>
+<a href="projects/womens-shelter" class="project-button">View Case →</a>
+</div>
+</div>
+</div></p>
 </section>
-
-
 <!-- Contact Section -->
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: esty.castros@gmail.com</p>
-    <p>LinkedIn: <a href="https://localhost:7262/www.linkedin.com/in/esther-c-8b0a87234" target="_blank">linkedin.com/in/esther</a></p>
+    <p>LinkedIn: <a href="www.linkedin.com/in/esther-c-8b0a87234" target="_blank">linkedin.com/in/esther</a></p>
 </section>
-
-
-
-
-    <!-- Include JS file -->
-    <script src="js/site.js"></script>
-</body>
+</main>
+    
+    <script src="/assets/js/site.js"></script>    
+  </body>
 </html>
-
-
