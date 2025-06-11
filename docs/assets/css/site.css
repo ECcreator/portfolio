@@ -8,40 +8,24 @@ body {
     cursor: default; /* Optional: restore normal cursor for readability */
 }
 
-
-body {
-    cursor: none; /* Hide the default arrow */
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
 }
 
-/* Container for the custom cursor */
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    pointer-events: none;
+.image {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-/* Outer dusty pink circle */
-.cursor-outer {
-    width: 40px;
-    height: 40px;
-    background-color: #d68a94;
-    border-radius: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
-    transition: transform 0.1s ease;
-}
-
-/* Inner darker purple dot */
-.cursor-inner {
-    width: 6px;
-    height: 6px;
-    background-color: #5b2a86; /* Updated to deep purple */
-    border-radius: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+#cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
 }
 
 .bg-video {
@@ -68,13 +52,14 @@ body {
     position: relative; /* Makes sure text stays above the video */
 }
 
-    .hero h1 {
-        font-family: 'Neue Montreal', sans-serif;
-        font-weight: bold;
-        font-size: 5rem;
-        text-transform: uppercase;
-    }
+.hero h1 {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: bold;
+    font-size: 5rem;
+    text-transform: uppercase;
+}
 
+/* 'BRAND' Text */
 /* 'BRAND' Text */
 #brand-text {
     display: inline-block;
@@ -83,7 +68,7 @@ body {
     font-size: 5rem;
 }
 
-/* The dot will move when the "S" is not visible */
+/* The dot will move when the "S" disappears */
 #brand-dot {
     position: absolute;
     top: 0;
@@ -105,11 +90,11 @@ body {
 /* Keyframe for moving dot when 'S' disappears */
 @keyframes dotMove {
     0%, 100% {
-        left: 100%;
+        left: -15px; /* Moves left when 'S' disappears */
     }
 
     50% {
-        left: -15px;
+        left: 100%; /* Stays to the right when 'S' is visible */
     }
 }
 
@@ -122,70 +107,120 @@ body {
     animation: dotMove 2s infinite;
 }
 
-/* Projects Section */
-.projects-section {
-    padding: 100px 0;
-    background-color: #fff;
+
+/* Site header */
+.site-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 2rem;
 }
 
+/* Navigarion bar */
+.nav-container {
+  display: flex;
+  gap: 2rem; /* Space between links */
+  font-family: 'Neue Montreal', sans-serif;
+}
+
+/* Navigation Links */
+.nav-container a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333; /* Default text color */
+  padding: 10px 20px;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* Hover & Click Effect */
+.nav-container a:hover,
+.nav-container a:focus {
+  color: #8B5E5E; /* Deep dark dusty pink */
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+/* Active Page Styling */
+.nav-container a:active {
+  color: #8B5E5E;
+  font-weight: bold;
+}
+
+.site-header,
+.nav-container {
+    pointer-events: none; /* Let the cursor move through */
+}
+
+.nav-container a {
+    pointer-events: auto; /* Links still work */
+}
+
+/* === Project Section Styles === */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+  display: flex;
+  justify-content: space-between; /* Ensures side-by-side alignment */
+  gap: 2rem;
+  width: 100vw; /* Full viewport width */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
-.project-card {
-    background-color: #222;
-    padding: 20px;
-    color: #f5c6d0;
+/* Ensure each project takes up half the screen */
+.project-item {
+  flex: 1; /* Makes both items equal width */
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Image styling */
+.project-image {
+  width: 100%;
+  height: 50vh; /* Takes half the viewport height */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Centered project name */
+.project-name {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+}
+
+.projects-title {
     text-align: center;
-    border-radius: 10px;
-    transition: 0.3s ease-in-out;
+    margin-bottom: 3rem;
 }
 
-    .project-card:hover {
-        transform: scale(1.05);
-        background-color: #333;
-    }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    flex-direction: column; /* Stack vertically on smaller screens */
+  }
 
-.project-case {
-    padding: 80px 20px;
-    background-color: #0f1923;
-    color: #f0f4f8;
-    font-family: 'Neue Montreal', sans-serif;
+  .project-image {
+    height: 300px; /* Adjust image height for mobile */
+  }
 }
 
-.case-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.project-case h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #f5c6d0;
-}
-
-.project-case h2 {
-    margin-top: 40px;
-    font-size: 2rem;
-    color: #add8ff;
-}
-
-.project-case p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.case-image {
-    width: 100%;
-    margin: 30px 0;
-    border-radius: 12px;
-}
+/* Each project style??? */
 
 .back-link a {
     display: inline-block;
@@ -241,36 +276,6 @@ figcaption {
     color: #555;
     margin-top: 0.5em;
 }
-
-.two-column-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f9f9; /* Light background */
-    padding: 60px 20px;
-}
-
-    .two-column-section .column {
-        flex: 1 1 45%;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .two-column-section .image-column img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .two-column-section .text-column h2 {
-        color: #111;
-    }
-
-    .two-column-section .text-column p {
-        color: #333;
-        line-height: 1.6;
-    }
 
 .content {
     max-width: 960px;
@@ -359,14 +364,6 @@ figcaption {
         .two-column-layout .column {
             flex: 1 1 100%;
         }
-}
-
-.hero-image-section {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
 }
 
 .hero-full-image {
@@ -513,70 +510,6 @@ figcaption {
         transform: translateY(-2px);
     }
 
-/* Sticky Header */
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: white;
-    border-bottom: 1px solid #eaeaea;
-    padding: 1rem 2rem;
-}
-
-/* Navigation container */
-.nav-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 2rem;
-    font-family: 'Neue Montreal', sans-serif;
-    font-size: 1rem;
-}
-
-
-    /* Navigation links */
-    .nav-container a {
-        color: #111;
-        text-decoration: none;
-        font-weight: 500;
-        transition: opacity 0.3s ease;
-    }
-
-        .nav-container a:hover {
-            opacity: 0.6;
-        }
-
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
-
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background-color: white;
-    border-bottom: 1px solid #eee;
-    padding: 1rem 2rem;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 2rem;
-    font-family: 'Neue Montreal', sans-serif;
-}
-
-    .nav-container a {
-        color: #111;
-        text-decoration: none;
-        font-weight: 500;
-        transition: opacity 0.3s ease;
-    }
-
-        .nav-container a:hover {
-            opacity: 0.6;
-        }
-
 /* Modal backdrop */
 .modal {
     display: none; /* Hidden by default */
@@ -613,15 +546,6 @@ html {
 
     .close-btn:hover {
         color: #000;
-    }
-
-.site-header,
-.nav-container {
-    pointer-events: none; /* Let the cursor move through */
-}
-
-    .nav-container a {
-        pointer-events: auto; /* Links still work */
     }
 
 /* Video Header */
@@ -755,6 +679,63 @@ html {
     }
 
 
+/* Contact */
+.contact-content {
+  background-color: #ffffff;
+  padding: 80px 20px;
+}
+
+.contact-content .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Custom Title Styling */
+.contact-title {
+  font-size: 3rem; /* Larger size */
+  font-family: 'Neue Montreal', sans-serif;
+  color: #D36C86; /* Dusty pink */
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 1.5rem;
+}
+
+.contact-content p,
+.contact-content ul {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-item {
+  margin-bottom: 0.75rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  display: block;
+}
+
+.contact-text {
+  line-height: 1;
+}
 
 /* Responsive layout */
 @media (max-width: 768px) {
@@ -829,32 +810,114 @@ html {
     box-sizing: border-box;
 }
 
-/* Womens Shelter Project Section */
-.project-section, .project-header, .project-details, .project-prototype, .project-ethics {
-    padding: 4rem 2rem;
-    color: #fff;
-    background-color: #111;
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.05em;
 }
 
-    .project-section h2, .project-header h1 {
-        font-family: 'DM Serif Display', serif;
-        font-size: 2.5rem;
-        color: #f4f4f4;
-    }
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #ccc;
+h1 {
+    font-size: 3rem;
 }
 
-.hero-image, .wide-image {
-    width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+/* Section Styling */
+.section-intro, .section-overview, .section-research, .section-design, .section-conclusion {
+    padding: 80px 20px;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+}
+
+/* Subtle Background Colors */
+.section-intro { background-color: #f4f1ec; }
+.section-overview { background-color: #f7f7f7; }
+.section-research { background-color: #efefef; }
+.section-design { background-color: #e3e9f2; }
+.section-conclusion { background-color: #ffffff; }
+
+/* Two-Column Section Layout */
+.two-column-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;      /* gutter on mobile */
+  }
+  
+.two-column-section .text-column h2 {
+    color: #111;
+}
+
+.two-column-section .text-column p {
+    color: #333;
+    line-height: 1.6;
+}
+
+.two-column-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;     
+    padding: 0 20px;      
+    box-sizing: border-box;
+}
+
+.two-column-inner .column {
+    flex: 1 1 45%;
+    padding: 20px;
+}
+
+.two-column-inner .image-column img {
+    max-width: 100%;
+    height: auto;
     display: block;
 }
+  
+.two-column-section .text-column h2 {
+    color: #111;
+}
 
-img {
+.two-column-section .text-column p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Links with Hover Effect */
+a {
+    color: #5b7db1;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #f5c6d0; /* Deep dusty pink */
+    font-weight: bold;
+}
+
+/* Enhanced Figures */
+figure {
+    text-align: center;
+    margin: 2em 0;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+figcaption {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0.5em;
+    font-style: italic;
 }

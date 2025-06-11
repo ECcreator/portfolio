@@ -8,24 +8,19 @@
     <link rel="stylesheet" href="/portfolio/assets/css/site.css">
   </head>
   <body>
-    <div class="custom-cursor">
-        <div class="cursor-outer"></div>
-        <div class="cursor-inner"></div>
-    </div>
 
     <header class="site-header">
     <nav class="nav-container">
         <a href="/portfolio/">Home</a>
         <a href="/portfolio/about/">About</a>
         <a href="/portfolio/#work">Work</a>
-        <a href="/portfolio/#contact">Contact</a>
+        <a href="/portfolio/contact">Contact</a>
     </nav>
 </header>
 
 
-    <main><!-- Custom Cursor -->
-<div class="cursor-dot" id="cursor-dot"></div>
-<!-- Video Background -->
+
+    <main><!-- Video Background -->
 <video autoplay muted loop playsinline class="bg-video">
     <source src="/portfolio/assets/videos/dark-ripple-surface-with-soft-reflections-2023-11-27-05-16-48-utc.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -48,42 +43,34 @@
 </div>
 <!-- Projects Section -->
 <section class="projects-section" id="work">
-    <div class="container">
-        <h2 class="section-title">Esther's Projects</h2>
-<p><div class="project-row">
-<div class="project-image-column">
-<img src="/portfolio/assets/images/credibilis/thumbnail-credibilis.png" alt="Credibilis project preview" class="project-image" />
-</div>
-<div class="project-text-column">
-<h3 class="project-title">Credibilis</h3>
-<p class="project-description">
-A social news app empowering young users to stay informed, think critically, and trust what they read through transparent, community-driven journalism.
-</p>
-<a href="/portfolio/projects/credibilis" class="project-button">View Case →</a>
-</div>
+  <h2 class="projects-title">Esther's Projects</h2>
+  <div class="projects-grid">
+<p><div class="project-item">
+<a href="/portfolio/projects/credibilis" class="project-link" aria-label="View Credibilis project">
+<img
+          src="/portfolio/assets/images/credibilis/thumbnail-credibilis.png"
+          alt="Credibilis project preview"
+          class="project-image"
+        />
+</a>
+<div class="project-name">Credibilis</div>
 </div></p>
-<p><div class="project-row">
-<div class="project-image-column">
-<img src="/portfolio/assets/images/womens-shelter/womens-shelter-thumbnail.png" alt="Women's Shelter project preview" class="project-image" />
-</div>
-<div class="project-text-column">
-<h3 class="project-title">Women's Shelter</h3>
-<p class="project-description">
-A digital redesign supporting women’s safety and trust through anonymous support features and trauma-informed UX patterns.
-</p>
-<a href="/portfolio/projects/womens-shelter" class="project-button">View Case →</a>
-</div>
-</div>
+<p><div class="project-item">
+<a href="/portfolio/projects/womens-shelter" class="project-link" aria-label="View Women's Shelter project">
+<img
+          src="/portfolio/assets/images/womens-shelter/womens-shelter-thumbnail.png"
+          alt="Women's Shelter project preview"
+          class="project-image"
+        />
+</a>
+<div class="project-name">Women's Shelter</div>
 </div></p>
-</section>
-<!-- Contact Section -->
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: esty.castros@gmail.com</p>
-    <p>LinkedIn: <a href="www.linkedin.com/in/esther-c-8b0a87234" target="_blank">linkedin.com/in/esther</a></p>
+  </div>
 </section>
 </main>
     
-    <script src="/portfolio/assets/js/site.js"></script>    
+    <script src="/portfolio/assets/js/site.js"></script>  
+
+    
   </body>
 </html>
